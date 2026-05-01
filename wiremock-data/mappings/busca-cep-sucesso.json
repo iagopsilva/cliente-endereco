@@ -1,0 +1,19 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/enderecos/04166003"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "cep": "04166-003",
+      "rua": "Avenida Padre Arlindo Vieira",
+      "bairro": "Jardim Vergueiro (Sacomã)",
+      "cidade": "São Paulo",
+      "uf": "SP"
+    }
+  }
+}
