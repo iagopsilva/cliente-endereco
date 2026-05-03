@@ -4,5 +4,5 @@ import com.nttdata.cliente_endereco.endereco.application.api.request.EnderecoReq
 import com.nttdata.cliente_endereco.endereco.application.api.response.EnderecoResponse;
 
 public interface EnderecoService {
-    EnderecoResponse criaEndereco(EnderecoRequest enderecoRequest);
+    EnderecoResponse criaEndereco(String cep, EnderecoRequest enderecoRequest);
 }

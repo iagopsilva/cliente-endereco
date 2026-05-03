@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/endereco")
 public interface EnderecoAPI {
-    @PostMapping
+    @PostMapping(value = "/{cep}")
     @ResponseStatus(HttpStatus.CREATED)
-    EnderecoResponse cadastraEndereco(@RequestBody @Valid EnderecoRequest enderecoRequest);
+    EnderecoResponse cadastraEndereco(
+            @PathVariable String cep, @RequestBody @Valid EnderecoRequest enderecoRequest);
 
 }

@@ -19,10 +19,10 @@ public class EnderecoController  implements EnderecoAPI{
     private final EnderecoService enderecoService;
 
     @Override
-    public EnderecoResponse cadastraEndereco(EnderecoRequest enderecoRequest) {
+    public EnderecoResponse cadastraEndereco(String cep, EnderecoRequest enderecoRequest) {
         log.info("[start] EnderecoController - cadastraEndereco");
-        EnderecoResponse enderecoCriado = enderecoService.criaEndereco(enderecoRequest);
+        EnderecoResponse enderecoCriado = enderecoService.criaEndereco(cep, enderecoRequest);
         log.debug("[finish] EnderecoController - cadastraEndereco");
-        return null;
+        return enderecoCriado;
     }
 }
