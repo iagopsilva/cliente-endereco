@@ -3,10 +3,12 @@ package com.nttdata.cliente_endereco.endereco.infra;
 import com.nttdata.cliente_endereco.endereco.application.api.request.EnderecoRequest;
 import com.nttdata.cliente_endereco.endereco.application.api.response.EnderecoResponse;
 import com.nttdata.cliente_endereco.endereco.application.repository.EnderecoRepository;
+import com.nttdata.cliente_endereco.log.application.repository.LogConsultaApiExternaRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
+import tools.jackson.databind.json.JsonMapper;
 
 @Repository
 @RequiredArgsConstructor
@@ -14,12 +16,15 @@ import org.springframework.util.StringUtils;
 public class EnderecoRepositoryFeign implements EnderecoRepository {
 
     private final EnderecoFeignClient enderecoFeignClient;
+    private final LogConsultaApiExternaRepository logConsultaApiExternaRepository;
+    private final JsonMapper jsonMapper;
 
     @Override
     public EnderecoResponse buscaEnderecoPorCep(String cep, EnderecoRequest enderecoRequest) {
         log.info("[start] EnderecoRepositoryFeign - buscaEnderecoPorCep");
 
         WiremockCepResponse cepApi = enderecoFeignClient.buscarPorCep(cep);
+        registrarLogConsulta(cep, cepApi);
 
         EnderecoResponse response = EnderecoResponse.builder()
                 .cep(cepApi.getCep())
@@ -34,5 +39,14 @@ public class EnderecoRepositoryFeign implements EnderecoRepository {
                 .build();
         log.debug("[finish] EnderecoRepositoryFeign - buscaEnderecoPorCep");
         return response;
+    }
+
+    private void registrarLogConsulta(String cepConsultado, WiremockCepResponse cepApi) {
+        try {
+            String json = jsonMapper.writeValueAsString(cepApi);
+            logConsultaApiExternaRepository.salvar(cepConsultado, json);
+        } catch (RuntimeException e) {
+            log.warn("Falha ao registrar log da consulta à API externa (Wiremock): {}", e.getMessage());
+        }
     }
 }
