@@ -8,7 +8,7 @@ cep:
 
 spring:
   datasource:
-    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/cliente_endereco}
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5433/cliente_endereco}
     username: ${DATASOURCE_USER:postgres}
     password: ${DATASOURCE_PASS:postgres}
     driver-class-name: org.postgresql.Driver
