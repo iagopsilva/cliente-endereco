@@ -44,11 +44,7 @@ public class EnderecoRepositoryFeign implements EnderecoRepository {
     }
 
     private void registrarLogConsulta(String cepConsultado, WiremockCepResponse cepApi) {
-        try {
             String json = jsonMapper.writeValueAsString(cepApi);
             logConsultaApiExternaRepository.salvar(cepConsultado, json);
-        } catch (RuntimeException e) {
-            log.warn("Falha ao registrar log da consulta à API externa (Wiremock): {}", e.getMessage());
-        }
     }
 }
