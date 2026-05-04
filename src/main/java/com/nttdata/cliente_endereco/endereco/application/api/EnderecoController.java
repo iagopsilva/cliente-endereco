@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class EnderecoController  implements EnderecoAPI{
 
-
     private final EnderecoService enderecoService;
 
     @Override

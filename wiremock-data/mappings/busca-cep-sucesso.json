@@ -10,10 +10,10 @@
     },
     "jsonBody": {
       "cep": "04166-003",
-      "logradouro": "Avenida Padre Arlindo Vieira",
       "bairro": "Jardim Vergueiro (Sacomã)",
       "cidade": "São Paulo",
-      "uf": "SP"
+      "logradouro": "Avenida Padre Arlindo Vieira",
+      "estado": "SP"
     }
   }
 }

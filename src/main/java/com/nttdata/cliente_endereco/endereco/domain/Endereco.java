@@ -3,9 +3,12 @@ package com.nttdata.cliente_endereco.endereco.domain;
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Size;
+import lombok.Builder;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.util.UUID;
+
+@Builder
 
 public class Endereco {
     @Id

@@ -2,6 +2,10 @@ server:
   servlet:
     context-path: /cliente-endereco/api
 
+cep:
+  api:
+    base-url: ${CEP_API_BASE_URL:http://localhost:8081/api/enderecos}
+
 spring:
   datasource:
     url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/cliente_endereco}
