@@ -7,7 +7,6 @@ import lombok.Data;
 @JsonIgnoreProperties
 public class WiremockCepResponse {
 
-    //private Boolean erro;
     private String cep;
     private String logradouro;
     private String complemento;

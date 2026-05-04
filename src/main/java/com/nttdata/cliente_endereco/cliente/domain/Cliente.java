@@ -31,6 +31,9 @@ public class Cliente {
     @Size(max = 20)
     private String cpfCnpj;
 
+    @Column(name = "id_endereco", nullable = true)
+    private UUID idEndereco;
+
     @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "cliente_emails", joinColumns = @JoinColumn(name = "cliente_id"))
     @Column(name = "emails", length = 255, nullable = false)
@@ -44,6 +47,7 @@ public class Cliente {
     public Cliente(ClienteRequest clienteRequest) {
         this.nome = clienteRequest.getNome();
         this.cpfCnpj = clienteRequest.getCpfCnpj();
+        this.idEndereco = clienteRequest.getIdEndereco();
         this.emails = new ArrayList<>(clienteRequest.getEmails());
         this.telefones = new ArrayList<>(clienteRequest.getTelefones());
     }

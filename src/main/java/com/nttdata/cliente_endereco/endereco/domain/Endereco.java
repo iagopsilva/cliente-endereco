@@ -2,10 +2,13 @@ package com.nttdata.cliente_endereco.endereco.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import jakarta.validation.constraints.Size;
 import lombok.Builder;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UuidGenerator;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Builder
@@ -42,4 +45,8 @@ public class Endereco {
     @Column(length = 20)
     @Size(max = 20)
     private String cep;
+
+    @CreationTimestamp
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime dataCriacao;
 }
