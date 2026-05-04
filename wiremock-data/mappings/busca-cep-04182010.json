@@ -1,0 +1,19 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/enderecos/04182010"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "cep": "04182-010",
+      "bairro": "Sacomã",
+      "cidade": "São Paulo",
+      "logradouro": "Rua Professor Sylla Mattos",
+      "estado": "SP"
+    }
+  }
+}

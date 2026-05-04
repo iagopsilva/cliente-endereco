@@ -1,6 +1,8 @@
 package com.nttdata.cliente_endereco.endereco.domain;
 
 import com.nttdata.cliente_endereco.endereco.application.api.response.EnderecoResponse;
+import com.nttdata.cliente_endereco.handler.APIException;
+import com.nttdata.cliente_endereco.handler.ErrorCode;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,6 +12,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.http.HttpStatus;
 
 import java.util.UUID;
 
@@ -58,5 +61,19 @@ public class Endereco {
         this.bairro = response.getBairro();
         this.cidade = response.getCidade();
         this.estado = response.getEstado();
+    }
+
+    public static String cepSomenteNumeros(String cep) {
+        if (cep == null || cep.isBlank()) {
+            throw new APIException(HttpStatus.BAD_REQUEST, ErrorCode.CEP_EM_BRANCO);
+        }
+        return cep.replaceAll("\\D", "");
+    }
+
+    public static void validaQuantidadeCaracteres(String cep) {
+        String digitos = cepSomenteNumeros(cep);
+        if (digitos.length() != 8) {
+            throw new APIException(HttpStatus.BAD_REQUEST, ErrorCode.QUANTIDADE_DE_CARACTER_INVALIDA);
+        }
     }
 }
