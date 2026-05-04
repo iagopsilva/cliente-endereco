@@ -1,7 +1,8 @@
 package com.nttdata.cliente_endereco.handler;
 
 public enum ErrorCode {
-  QUANTIDADE_DE_CARACTER_INVALIDA("quantidade.de.caracter.invalida");
+  QUANTIDADE_DE_CARACTER_INVALIDA("quantidade.de.caracter.invalida"),
+  CEP_EM_BRANCO("cep.em.branco");
 
   private final String code;
 
