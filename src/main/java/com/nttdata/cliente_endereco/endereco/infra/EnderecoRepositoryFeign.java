@@ -6,8 +6,10 @@ import com.nttdata.cliente_endereco.endereco.application.repository.EnderecoRepo
 import com.nttdata.cliente_endereco.log.application.repository.LogConsultaApiExternaRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
+import org.springframework.web.server.ResponseStatusException;
 import tools.jackson.databind.json.JsonMapper;
 
 @Repository
