@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @ToString
@@ -30,4 +31,6 @@ public class ClienteRequest {
 
     @NotNull(message = "{validacao.telefones.obrigatorio}")
     private List<@NotBlank @Size(max = 20) String> telefones;
+
+    private UUID idEndereco;
 }

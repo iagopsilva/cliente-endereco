@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 @Getter
 @Builder
 @NoArgsConstructor
@@ -18,4 +20,5 @@ public class EnderecoResponse {
     private String bairro;
     private String cidade;
     private String estado;
+    private UUID idEndereco;
 }

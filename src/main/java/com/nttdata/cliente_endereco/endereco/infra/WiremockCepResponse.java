@@ -4,10 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 @Data
-@JsonIgnoreProperties
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class WiremockCepResponse {
 
-    //private Boolean erro;
     private String cep;
     private String logradouro;
     private String complemento;

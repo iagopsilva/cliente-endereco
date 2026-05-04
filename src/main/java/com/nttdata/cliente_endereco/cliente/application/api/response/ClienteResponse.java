@@ -9,17 +9,19 @@ import java.util.UUID;
 
 @Getter
 public class ClienteResponse {
-    private UUID id;
+    private UUID idCliente;
     private String nome;
     private String cpfCnpj;
     private List<String> emails;
     private List<String> telefones;
+    private UUID idEndereco;
 
     public ClienteResponse(Cliente cliente) {
-        this.id = cliente.getId();
+        this.idCliente = cliente.getId();
         this.nome = cliente.getNome();
         this.cpfCnpj = cliente.getCpfCnpj();
         this.emails = cliente.getEmails() == null ? List.of() : new ArrayList<>(cliente.getEmails());
         this.telefones = cliente.getTelefones() == null ? List.of() : new ArrayList<>(cliente.getTelefones());
+        this.idEndereco = cliente.getIdEndereco();
     }
 }
