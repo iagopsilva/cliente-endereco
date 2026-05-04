@@ -1,0 +1,19 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/enderecos/04165011"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "cep": "04165-011",
+      "bairro": "Vila das Mercês",
+      "cidade": "São Paulo",
+      "logradouro": "Rua Nossa Senhora das Mercês",
+      "estado": "SP"
+    }
+  }
+}
